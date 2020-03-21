@@ -80,6 +80,7 @@ ActivityBase {
             property string temperatureHint
             property string lengthOfYearHint
             property string positionOfPlanetHint
+            property bool hintProvide: true
         }
 
         onStart: {
@@ -301,20 +302,6 @@ ActivityBase {
             onButton0Hit: solarSystemImageHint.visible = true
         }
 
-        DialogBackground {
-            id: nohint
-            visible: false
-            title: qsTr("Hint")
-            content: "Sorry No Hint Available For This Question !!"
-            onClose: {
-                solarSystemImageHint.visible = false
-                home()
-            }
-            button0Text: qsTr("View solar system")
-
-            onButton0Hit: solarSystemImageHint.visible = true
-        }
-
         DialogActivityConfig {
             id: dialogActivityConfig
             currentActivity: activity
@@ -377,7 +364,8 @@ ActivityBase {
                      items.solarSystemVisible ? withConfig :
                      items.assessmentMode ? withConfigWithHint :
                      Activity.indexOfSelectedPlanet == 0 ? withoutConfigWithoutHint :
-                     withoutConfigWithHint
+                     items.hintProvide ? withoutConfigWithHint :
+                     withoutConfigWithoutHint
 
             property BarEnumContent withConfig: BarEnumContent { value: help | home | config }
             property BarEnumContent withoutConfigWithHint: BarEnumContent { value: help | home | level | hint }
@@ -401,13 +389,9 @@ ActivityBase {
                 if(items.assessmentMode)
                     solarSystemImageHint.visible = true
                 else{
-                    if(Activity.hintprovide===1 ){
+                    if(items.hintProvide)
                         displayDialog(hintDialog)
-                }
-                    else{
-                        displayDialog(nohint)
                     }
-                }
             }
             onConfigClicked: {
                 dialogActivityConfig.active = true

@@ -32,7 +32,7 @@ var currentSubLevel
 var indexOfSelectedPlanet
 var assessmentModeQuestions = []
 var allQuestions = []
-var hintprovide
+
 
 function start(items_) {
     items = items_
@@ -75,7 +75,7 @@ function nextSubLevel(isAssessmentMode) {
         }
         else {
             items.mainQuizScreen.question = currentPlanetLevels[currentSubLevel].question
-            hintprovide = currentPlanetLevels[currentSubLevel].hintprovide
+            items.hintProvide = currentPlanetLevels[currentSubLevel].hintprovide
             for(var i = 0 ; i < 4 ; i ++) {
                 optionListShuffle.push({
                     "optionValue": currentPlanetLevels[currentSubLevel].options[i],

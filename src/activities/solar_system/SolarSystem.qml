@@ -288,6 +288,8 @@ ActivityBase {
 
             readonly property string hint1: qsTr("1. The <b>farther</b> a planet from the Sun, the <b>lower</b> is its temperature.<br><font color=\"#3bb0de\">%1</font>").arg(items.temperatureHint)
             readonly property string hint2: qsTr("2. The duration of a year on a planet <b>increases as we go away from the Sun</b>.<br><font color=\"#3bb0de\">%1</font>").arg(items.lengthOfYearHint)
+            //: find an equivalent rhyme in your language where the first letter of each word corresponds to the first letter of the planet in proper sequence
+            //~ try to make the rhyme as simple as possible
             readonly property string hint3: qsTr("3. Always remember this Rhyme to learn the position of planets , examine the first letter in each word - <b>M</b>y <b>V</b>ery <b>E</b>xcellent <b>M</b>other <b>J</b>ust <b>S</b>erved <b>U</b>s <b>N</b>oodles.<br><font color=\"#3bb0de\">%1</font>").arg(items.positionOfPlanetHint)
 
             title: qsTr("Hint")

@@ -80,7 +80,7 @@ ActivityBase {
             property string temperatureHint
             property string lengthOfYearHint
             property string positionOfPlanetHint
-            property bool hintProvide: true
+            property bool hintProvided: true
         }
 
         onStart: {
@@ -366,7 +366,7 @@ ActivityBase {
                      items.solarSystemVisible ? withConfig :
                      items.assessmentMode ? withConfigWithHint :
                      Activity.indexOfSelectedPlanet == 0 ? withoutConfigWithoutHint :
-                     items.hintProvide ? withoutConfigWithHint :
+                     items.hintProvided ? withoutConfigWithHint :
                      withoutConfigWithoutHint
 
             property BarEnumContent withConfig: BarEnumContent { value: help | home | config }
@@ -391,7 +391,7 @@ ActivityBase {
                 if(items.assessmentMode)
                     solarSystemImageHint.visible = true
                 else{
-                    if(items.hintProvide)
+                    if(items.hintProvided)
                         displayDialog(hintDialog)
                     }
             }
